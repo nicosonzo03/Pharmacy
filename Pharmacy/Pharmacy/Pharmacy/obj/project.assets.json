@@ -1436,11 +1436,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sonzogni.17133.PALEOCAPA\\source\\repos\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
+      "projectUniqueName": "C:\\Users\\sonzogni.17133.PALEOCAPA\\Documents\\GitHub\\Pharmacy\\Pharmacy\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
       "projectName": "Pharmacy",
-      "projectPath": "C:\\Users\\sonzogni.17133.PALEOCAPA\\source\\repos\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
+      "projectPath": "C:\\Users\\sonzogni.17133.PALEOCAPA\\Documents\\GitHub\\Pharmacy\\Pharmacy\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
       "packagesPath": "C:\\Users\\sonzogni.17133.PALEOCAPA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sonzogni.17133.PALEOCAPA\\source\\repos\\Pharmacy\\Pharmacy\\obj\\",
+      "outputPath": "C:\\Users\\sonzogni.17133.PALEOCAPA\\Documents\\GitHub\\Pharmacy\\Pharmacy\\Pharmacy\\Pharmacy\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

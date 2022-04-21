@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R1F3+H/FlVCLNJtqznMYnZvxMiSe0z7LOLcvZOuG84alKCPFnUjlE8X/e1oWgG3T9f6a1SV5OXRnmU63tnRdzA==",
+  "dgSpecHash": "o6UAoVhPxeleMm5Cv20Z/++m9arEtN31Lv0/Bs731swgvpVzCVlHAlxYfPZkYMKGXSphB3c9FWu17pby3Ttfdg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sonzogni.17133.PALEOCAPA\\source\\repos\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
+  "projectFilePath": "C:\\Users\\sonzogni.17133.PALEOCAPA\\Documents\\GitHub\\Pharmacy\\Pharmacy\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sonzogni.17133.PALEOCAPA\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\sonzogni.17133.PALEOCAPA\\.nuget\\packages\\mailkit\\3.2.0\\mailkit.3.2.0.nupkg.sha512",
