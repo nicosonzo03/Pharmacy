@@ -1,0 +1,101 @@
+﻿@page
+@model Pharmacy.Pages.Search.IndexModel
+@{
+    ViewData["Title"] = "Search";
+}
+<div class="text-center">
+    <h1 class="display-4,text">@ViewData["Title"]</h1>
+</div>
+
+@if (Model.User != null)
+{
+    <script>
+    function setFavorite(pId) {
+        var el = document.getElementById('m_' + pId);
+
+        if (el.classList.contains("bi-heart-fill")) {
+
+                fetch('/Favourites/Index?handler=DeleteFavorite&userId=@Model.User.Id&diseaseId=' + pId)
+                .then(r => {
+
+                        el.classList.add("bi-heart");
+                        el.classList.remove("bi-heart-fill");
+
+                });
+
+        } else {
+
+            fetch('/Favourites/Index?handler=SetFavorite&userId=@Model.User.Id&diseaseId=' + pId)
+                .then(r => {
+
+                        el.classList.add("bi-heart-fill");
+                        el.classList.remove("bi-heart");
+
+                });
+    }
+
+    }
+    </script>
+}
+
+<form method="post">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-2">
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-9">
+                        <input type="search" class="form-control" asp-for="@Model.SearchText" placeholder="Find product..." />
+                    </div>
+                    <div class="col-3">
+                        <input type="submit" class="btn btn-primary" value="Search" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+        @if (Model.Diseases != null)
+        {
+            @foreach (var disease in Model.Diseases)
+            {
+                <div class="row mt-5 rounded shadow">
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm">
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="display-4,text">@disease.Name</h3>
+                            </div>
+                            @if (Model.User != null)
+                            {
+                                <div class="col text-right mt-2 mr-3">
+                                    <span class="float-right">
+                                        <a href="javascript: setFavorite('@disease.Id')">
+                                            <i id="m_@disease.Id" class="bi bi-heart" style="font-size: 2.3em; "></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col text-right mb-5 mr-3">
+                                <a class="btn btn-outline-primary float-right" href="" target="_blank"><i class="bi bi-cart3"></i> Vedi medicinali</a> <!--link pagina details-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        @if (!string.IsNullOrEmpty(Model.ErrorText))
+        {
+            <div class="alert alert-danger text-center mt-3">
+                <p>@Model.ErrorText</p>
+            </div>
+        }
+    </div>
+</form>
+
+

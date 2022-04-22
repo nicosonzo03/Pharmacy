@@ -18,11 +18,11 @@ namespace Pharmacy.Pages.History
             _context = context;
         }
         public new User User { get; set; }
-        public IList<DiseaseHistoryDTO> Products { get; set; }
+        public IList<DiseaseHistoryDTO> Diseases { get; set; }
         public async Task<IActionResult> OnGetAsync()
         {
             User = CookiesManager.GetUserByCookies(HttpContext.Request, _context);
-            Products = new List<DiseaseHistoryDTO>();
+            Diseases = new List<DiseaseHistoryDTO>();
             if (User == null)
                 return Page();
 
@@ -32,7 +32,7 @@ namespace Pharmacy.Pages.History
                 var matchingUp = userDiseases.Where(x => x.IdDisease == p.Id).ToList();
                 foreach (var up in matchingUp)
                 {
-                    Products.Add(new DiseaseHistoryDTO()
+                    Diseases.Add(new DiseaseHistoryDTO()
                     {
                         Date = up.Date,
                         Name = p.Name,
