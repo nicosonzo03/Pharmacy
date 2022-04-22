@@ -1,0 +1,19 @@
+C:\Users\NbkHp\source\repos\web scraping\web scraping\obj\Debug\net5.0\web scraping.csproj.AssemblyReference.cache
+C:\Users\NbkHp\source\repos\web scraping\web scraping\obj\Debug\net5.0\web scraping.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NbkHp\source\repos\web scraping\web scraping\obj\Debug\net5.0\web scraping.AssemblyInfoInputs.cache
+C:\Users\NbkHp\source\repos\web scraping\web scraping\obj\Debug\net5.0\web scraping.AssemblyInfo.cs
+C:\Users\NbkHp\source\repos\web scraping\web scraping\obj\Debug\net5.0\web scraping.csproj.CoreCompileInputs.cache
+C:\Users\NbkHp\source\repos\web scraping\web scraping\bin\Debug\net5.0\web scraping.exe
+C:\Users\NbkHp\source\repos\web scraping\web scraping\bin\Debug\net5.0\web scraping.deps.json
+C:\Users\NbkHp\source\repos\web scraping\web scraping\bin\Debug\net5.0\web scraping.runtimeconfig.json
+C:\Users\NbkHp\source\repos\web scraping\web scraping\bin\Debug\net5.0\web scraping.runtimeconfig.dev.json
+C:\Users\NbkHp\source\repos\web scraping\web scraping\bin\Debug\net5.0\web scraping.dll
+C:\Users\NbkHp\source\repos\web scraping\web scraping\bin\Debug\net5.0\ref\web scraping.dll
+C:\Users\NbkHp\source\repos\web scraping\web scraping\bin\Debug\net5.0\web scraping.pdb
+C:\Users\NbkHp\source\repos\web scraping\web scraping\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\NbkHp\source\repos\web scraping\web scraping\bin\Debug\net5.0\WebDriver.dll
+C:\Users\NbkHp\source\repos\web scraping\web scraping\obj\Debug\net5.0\web scraping.csproj.CopyComplete
+C:\Users\NbkHp\source\repos\web scraping\web scraping\obj\Debug\net5.0\web scraping.dll
+C:\Users\NbkHp\source\repos\web scraping\web scraping\obj\Debug\net5.0\ref\web scraping.dll
+C:\Users\NbkHp\source\repos\web scraping\web scraping\obj\Debug\net5.0\web scraping.pdb
+C:\Users\NbkHp\source\repos\web scraping\web scraping\obj\Debug\net5.0\web scraping.genruntimeconfig.cache
