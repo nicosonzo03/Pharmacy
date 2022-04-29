@@ -1,0 +1,19 @@
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\bin\Debug\net5.0\Web scraping malattie.exe
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\bin\Debug\net5.0\Web scraping malattie.deps.json
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\bin\Debug\net5.0\Web scraping malattie.runtimeconfig.json
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\bin\Debug\net5.0\Web scraping malattie.runtimeconfig.dev.json
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\bin\Debug\net5.0\Web scraping malattie.dll
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\bin\Debug\net5.0\ref\Web scraping malattie.dll
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\bin\Debug\net5.0\Web scraping malattie.pdb
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\bin\Debug\net5.0\WebDriver.dll
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\obj\Debug\net5.0\Web scraping malattie.csproj.AssemblyReference.cache
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\obj\Debug\net5.0\Web scraping malattie.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\obj\Debug\net5.0\Web scraping malattie.AssemblyInfoInputs.cache
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\obj\Debug\net5.0\Web scraping malattie.AssemblyInfo.cs
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\obj\Debug\net5.0\Web scraping malattie.csproj.CoreCompileInputs.cache
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\obj\Debug\net5.0\Web scraping malattie.csproj.CopyComplete
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\obj\Debug\net5.0\Web scraping malattie.dll
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\obj\Debug\net5.0\ref\Web scraping malattie.dll
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\obj\Debug\net5.0\Web scraping malattie.pdb
+C:\Users\NbkHp\source\repos\Web scraping malattie\Web scraping malattie\obj\Debug\net5.0\Web scraping malattie.genruntimeconfig.cache

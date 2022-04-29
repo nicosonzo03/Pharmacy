@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "5iQmHuc9E/hxFf2kTXiJp9dJ4R66ksQbyEsHGcjBWV7dVtEixRQDk0aWyVebhFW8ruxEsoDHxhqJmyBaNvylLg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\NbkHp\\source\\repos\\Web scraping malattie\\Web scraping malattie\\Web scraping malattie.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\NbkHp\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\NbkHp\\.nuget\\packages\\selenium.webdriver\\4.1.1\\selenium.webdriver.4.1.1.nupkg.sha512",
+    "C:\\Users\\NbkHp\\.nuget\\packages\\selenium.webdriver.chromedriver\\101.0.4951.4100\\selenium.webdriver.chromedriver.101.0.4951.4100.nupkg.sha512"
+  ],
+  "logs": []
+}
