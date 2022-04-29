@@ -32,7 +32,6 @@ namespace Pharmacy.Pages.Search
 
         public IActionResult OnGet()
         {
-            Symptoms = _apiManager.GetSymptoms();
             User = CookiesManager.GetUserByCookies(HttpContext.Request, _context);
             return Page();
         }

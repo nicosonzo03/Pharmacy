@@ -79,3 +79,4 @@ C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\Pharmacy\bin\Debug\ne
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Pharmacy.Views.pdb
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Pharmacy.csproj.CopyComplete
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Pharmacy.genruntimeconfig.cache
+C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\Pharmacy\bin\Debug\net5.0\WebDriver.dll

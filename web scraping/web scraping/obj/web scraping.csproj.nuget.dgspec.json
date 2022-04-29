@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\NbkHp\\source\\repos\\web scraping\\web scraping\\web scraping.csproj": {}
+    "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\web scraping\\web scraping\\web scraping.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NbkHp\\source\\repos\\web scraping\\web scraping\\web scraping.csproj": {
+    "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\web scraping\\web scraping\\web scraping.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NbkHp\\source\\repos\\web scraping\\web scraping\\web scraping.csproj",
+        "projectUniqueName": "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\web scraping\\web scraping\\web scraping.csproj",
         "projectName": "web scraping",
-        "projectPath": "C:\\Users\\NbkHp\\source\\repos\\web scraping\\web scraping\\web scraping.csproj",
+        "projectPath": "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\web scraping\\web scraping\\web scraping.csproj",
         "packagesPath": "C:\\Users\\NbkHp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NbkHp\\source\\repos\\web scraping\\web scraping\\obj\\",
+        "outputPath": "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\web scraping\\web scraping\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

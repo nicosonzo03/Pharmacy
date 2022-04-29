@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bSDYITJvmRASLSj/dwfwqyzdQJZiPiZKL61hzSMBC0OdcbjCMe2rN3GDmH17uejFs7k0epHm1j/AoaeMQSt0Ow==",
+  "dgSpecHash": "ekbLrtZ5gKmHzf9DAo2X1IpwinEdfHRcNtkh3FKzyiViVpaIWPb3A9qdwuYgtx4RZM2CLFevUJVcEp/sDXDP3Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\Pharmacy\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
   "expectedPackageFiles": [
@@ -30,6 +30,8 @@
     "C:\\Users\\NbkHp\\.nuget\\packages\\mimekit\\3.2.0\\mimekit.3.2.0.nupkg.sha512",
     "C:\\Users\\NbkHp\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\NbkHp\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
+    "C:\\Users\\NbkHp\\.nuget\\packages\\selenium.webdriver\\4.1.1\\selenium.webdriver.4.1.1.nupkg.sha512",
+    "C:\\Users\\NbkHp\\.nuget\\packages\\selenium.webdriver.chromedriver\\96.0.4664.4500\\selenium.webdriver.chromedriver.96.0.4664.4500.nupkg.sha512",
     "C:\\Users\\NbkHp\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\NbkHp\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
     "C:\\Users\\NbkHp\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",

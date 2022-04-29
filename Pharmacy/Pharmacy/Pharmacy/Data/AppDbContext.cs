@@ -18,12 +18,10 @@ namespace Pharmacy.Data
 
         public DbSet<Disease> Diseases { get; set; }
 
-        public DbSet<Medicine> Medicines { get; set; }
-
         public DbSet<UserDisease> UsersDiseases { get; set; }
 
-        public DbSet<DiseaseMedicine> DiseasesMedicines { get; set; }
-
         public DbSet<EmailToken> EmailTokens { get; set; }
+
+        public DbSet<Symptom> elencosintomi { get; set; }
     }
 }

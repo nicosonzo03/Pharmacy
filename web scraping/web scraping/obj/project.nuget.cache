@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y2AukkcA8qrx2+vhuOms9Ia3OmsWscHlHx3bUWQWBssck3pZJjId8UPVZ7M7UwHxCLu/LubR1PznxRljGEvjGQ==",
+  "dgSpecHash": "IeQCfaQ1dSFLRzhqacmRyIerJ7qW/i9+qfHrhRTkpBFS+4BeqpYti3JhH9m5imluBLJ/8/qPHyVzqlYsOy81KA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NbkHp\\source\\repos\\web scraping\\web scraping\\web scraping.csproj",
+  "projectFilePath": "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\web scraping\\web scraping\\web scraping.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NbkHp\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\NbkHp\\.nuget\\packages\\selenium.webdriver\\4.1.0\\selenium.webdriver.4.1.0.nupkg.sha512",
