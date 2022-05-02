@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\NbkHp\\source\\repos\\Web scraping malattie\\Web scraping malattie\\Web scraping malattie.csproj": {}
+    "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\Web scraping malattie\\Web scraping malattie\\Web scraping malattie.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NbkHp\\source\\repos\\Web scraping malattie\\Web scraping malattie\\Web scraping malattie.csproj": {
+    "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\Web scraping malattie\\Web scraping malattie\\Web scraping malattie.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NbkHp\\source\\repos\\Web scraping malattie\\Web scraping malattie\\Web scraping malattie.csproj",
+        "projectUniqueName": "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\Web scraping malattie\\Web scraping malattie\\Web scraping malattie.csproj",
         "projectName": "Web scraping malattie",
-        "projectPath": "C:\\Users\\NbkHp\\source\\repos\\Web scraping malattie\\Web scraping malattie\\Web scraping malattie.csproj",
+        "projectPath": "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\Web scraping malattie\\Web scraping malattie\\Web scraping malattie.csproj",
         "packagesPath": "C:\\Users\\NbkHp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NbkHp\\source\\repos\\Web scraping malattie\\Web scraping malattie\\obj\\",
+        "outputPath": "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\Web scraping malattie\\Web scraping malattie\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

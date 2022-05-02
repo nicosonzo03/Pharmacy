@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gfBkxoYT1HswD7V+X87wcLSVTjQANVoLBWnukgZHxPR844QnR2RAsQkxrMY6qIpddcSPG+urEev2l6a0LsX2TQ==",
+  "dgSpecHash": "cwd5SZn6BAZ0yUf9dote8x3zd2LOKe45R7PZkcIOgHnb9N00LJA1BRNAI3xGHMgIu6dQySXmebb5eCEWljKRNg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NbkHp\\Desktop\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
+  "projectFilePath": "C:\\Users\\NbkHp\\Documents\\GitHub\\Pharmacy\\Pharmacy\\Pharmacy\\Pharmacy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NbkHp\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\NbkHp\\.nuget\\packages\\mailkit\\3.2.0\\mailkit.3.2.0.nupkg.sha512",
