@@ -38,7 +38,6 @@ namespace Pharmacy.Pages.History
                         Name = p.Name
                     });
                 }
-
             }
             return Page();
         }

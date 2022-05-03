@@ -25,7 +25,9 @@ namespace API_Pharmacy.Controllers
         {
             try
             {
-                List<string> elesintomi = new List<string>(elencosintomi.Split("%2C").ToList());
+                string[] arraysintomi = elencosintomi.Split(',');
+                List<string> elesintomi = new List<string>();
+                elesintomi = arraysintomi.ToList();
                 var malattie = _diseasesRepo.FindDisease(elesintomi);
                 return Ok(malattie);
                 //return StatusCode(200);

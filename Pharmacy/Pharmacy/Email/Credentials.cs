@@ -9,8 +9,9 @@ namespace Pharmacy.Email
     {
         public static EmailCredentials EmailCredentials = new EmailCredentials
         {
-            Username = "pharmacyitispaleocapa",
+            Username = "pharmacydeveloper",
             Password = "20pharmacy22"
+
         };
     }
 }

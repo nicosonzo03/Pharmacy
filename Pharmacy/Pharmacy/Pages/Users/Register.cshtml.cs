@@ -97,7 +97,7 @@ namespace Pharmacy.Pages.Users
             _context.SaveChanges();
             ErrorText = string.Empty;
             if (IsSended)
-                return RedirectToPage("/users/verification", new { id = newUser.Id });
+                return RedirectToPage("/Users/verification", new { id = newUser.Id });
             return Page();
         }
     }

@@ -13,7 +13,7 @@ namespace Pharmacy.Email
             Token = token;
         }
         public string NameSender { get => "Pharmacy Developer"; }
-        public string Sender { get => "pharmacyitispaleocapa"; }
+        public string Sender { get => "pharmacydeveloper"; }
         public string Subject { get => "Email verification"; }
         public string User { get; set; }
         public string Token { get; set; }
