@@ -35,8 +35,7 @@ namespace Pharmacy.Pages.History
                     Diseases.Add(new DiseaseHistoryDTO()
                     {
                         Date = up.Date,
-                        Name = p.Name,
-                        Link = "" //link alla pagina details
+                        Name = p.Name
                     });
                 }
 
