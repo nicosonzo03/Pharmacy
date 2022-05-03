@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{text}"
 @model Pharmacy.Pages.Search.IndexModel
 @{
     ViewData["Title"] = "Search";
@@ -45,9 +45,6 @@
             </div>
             <div class="col">
                 <div class="row">
-                    <div class="col-9">
-                        <input type="search" class="form-control" asp-for="@Model.SearchText" placeholder="Find product..." />
-                    </div>
                     <div class="col-3">
                         <input type="submit" class="btn btn-primary" value="Search" />
                     </div>
@@ -82,7 +79,7 @@
                         <br />
                         <div class="row">
                             <div class="col text-right mb-5 mr-3">
-                                <a class="btn btn-outline-primary float-right" href="" target="_blank"><i class="bi bi-cart3"></i> Vedi medicinali</a> <!--link pagina details-->
+                                <a class="btn btn-outline-primary float-right" asp-page="./Details" asp-route-id="@disease.Id" target="_blank"><i class="bi bi-cart3"></i>More details</a>
                             </div>
                         </div>
                     </div>

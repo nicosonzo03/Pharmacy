@@ -93,7 +93,7 @@ namespace API_Pharmacy.Repository
                         }
                     }
 
-                    if (driver.PageSource.Contains(" Please contact your doctor or call 911 ") && (!driver.PageSource.Contains("? Find Out More")))
+                    if (driver.PageSource.Contains(" Please contact your doctor or call 911 ") && driver.PageSource.Contains(" Read More") && (!driver.PageSource.Contains("? Find Out More")))
                     {
                         Thread.Sleep(1000);
                         bool ok = false;
@@ -109,6 +109,61 @@ namespace API_Pharmacy.Repository
                                 e.StackTrace.ToString();
                             }
                         }
+
+                        int sez = 1;
+                        int sezioni = driver.FindElements(By.ClassName("article-section")).Count;
+
+                        Guid guid = Guid.NewGuid();
+                        nuovamalattia.Id = guid.ToString();
+                        nuovamalattia.Name = driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[2]/h1")).Text;
+
+                        if (sezioni == 5)
+                        {
+                            while (sez <= sezioni - 1)
+                            {
+
+                                if (sez != 1 && sez != 3)
+                                {
+                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/h3")).Text + ": ";
+
+                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/div/p")).Text + "\n\n";
+                                }
+                                sez++;
+                            }
+                        }
+
+                        if (sezioni == 6)
+                        {
+                            while (sez <= sezioni - 2)
+                            {
+
+                                if (sez != 1 && sez != 3)
+                                {
+                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[{sez}]/h3")).Text + ": ";
+
+                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[{sez}]/div/p")).Text + "\n\n";
+                                }
+                                sez++;
+                            }
+                        }
+                    }
+
+                    else if (driver.PageSource.Contains(" Please contact your doctor or call 911 ") && (!driver.PageSource.Contains(" Read More")))
+                    {
+                        Thread.Sleep(1000);
+                        //bool ok = false;
+                        //while (ok == false)
+                        //{
+                        //    try
+                        //    {
+                        //        driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[4]/div[1]/p/a")).Click();
+                        //        ok = true;
+                        //    }
+                        //    catch (WebDriverException e)
+                        //    {
+                        //        e.StackTrace.ToString();
+                        //    }
+                        //}
 
                         int sez = 1;
                         int sezioni = driver.FindElements(By.ClassName("article-section")).Count;
@@ -300,6 +355,7 @@ namespace API_Pharmacy.Repository
                         {
                             try
                             {
+                                
                                 driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[4]/div[1]/p/a")).Click();
                                 ok = true;
                             }

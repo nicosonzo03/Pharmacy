@@ -160,3 +160,4 @@ C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Phar
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\ref\Pharmacy.dll
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Pharmacy.pdb
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Pharmacy.genruntimeconfig.cache
+C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Razor\Pages\Symptoms\Index.cshtml.g.cs

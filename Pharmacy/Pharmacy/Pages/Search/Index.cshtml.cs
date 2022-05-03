@@ -23,21 +23,19 @@ namespace Pharmacy.Pages.Search
         public IList<Disease> Diseases { get; set; }
 
         [BindProperty]
-        public List<string> Symptoms { get; set; }
-
-        [BindProperty]
         public string ErrorText { get; set; }
         public User User { get; set; }
         ApiManager _apiManager { get; set; }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(string text)
         {
+            SearchText = text;
             User = CookiesManager.GetUserByCookies(HttpContext.Request, _context);
             return Page();
         }
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string text)
         {
-            //Diseases = _apiManager.GetProducts(SearchText);
+            Diseases = _apiManager.GetDiseases(text);
             ErrorText = string.Empty;
             User = CookiesManager.GetUserByCookies(HttpContext.Request, _context);
             foreach (var p in Diseases)
