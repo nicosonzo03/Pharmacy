@@ -36,6 +36,7 @@ namespace Pharmacy.Pages.Symptoms
 
         public IActionResult OnGet()
         {
+            Symptoms.Clear();
             User = CookiesManager.GetUserByCookies(HttpContext.Request, _context);
             foreach (var item in _context.elencosintomi)
             {

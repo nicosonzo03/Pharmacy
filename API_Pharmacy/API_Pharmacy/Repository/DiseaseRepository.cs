@@ -44,7 +44,6 @@ namespace API_Pharmacy.Repository
 
                 if (item == "headache")
                 {
-
                     driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[3]/div[1]/div[1]/div[2]/ul[1]/li[1]/a")).Click();
                     driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[3]/div[3]/div/div/div[3]/div")).Click();
                 }
@@ -60,7 +59,7 @@ namespace API_Pharmacy.Repository
 
             driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[3]/div[2]/button[2]")).Click();
 
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
 
             if (driver.PageSource.Contains("We are unable to find any conditions that match the symptoms you entered."))
             {
@@ -93,7 +92,9 @@ namespace API_Pharmacy.Repository
                         }
                     }
 
-                    if (driver.PageSource.Contains(" Please contact your doctor or call 911 ") && driver.PageSource.Contains(" Read More") && (!driver.PageSource.Contains("? Find Out More")))
+                    Thread.Sleep(1000);
+
+                    if (driver.PageSource.Contains(" Please contact your doctor or call 911 ") && driver.PageSource.Contains(" This is an URGENT CONDITION ") && driver.PageSource.Contains(" read more")) //&& (!driver.PageSource.Contains("? Find Out More")))
                     {
                         Thread.Sleep(1000);
                         bool ok = false;
@@ -148,7 +149,7 @@ namespace API_Pharmacy.Repository
                         }
                     }
 
-                    else if (driver.PageSource.Contains(" Please contact your doctor or call 911 ") && (!driver.PageSource.Contains(" Read More")))
+                    else if (driver.PageSource.Contains(" Please contact your doctor or call 911 ") && (!driver.PageSource.Contains(" read more")))
                     {
                         Thread.Sleep(1000);
                         //bool ok = false;
@@ -283,7 +284,7 @@ namespace API_Pharmacy.Repository
                         nuovamalattia.Id = guid.ToString();
                         nuovamalattia.Name = driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/h1")).Text;
 
-                        if(nuovamalattia.Name == "Cerebellar Hemorrhage" || nuovamalattia.Name == "Aspiration Pneumonia")
+                        if(nuovamalattia.Name == "Cerebellar Hemorrhage" || nuovamalattia.Name == "Aspiration Pneumonia" || nuovamalattia.Name == "Bacterial Pneumonia")
                         {
                             break;
                         }
@@ -349,15 +350,27 @@ namespace API_Pharmacy.Repository
 
                     else
                     {
+
+                        Guid guid = Guid.NewGuid();
+                        nuovamalattia.Id = guid.ToString();
+                        nuovamalattia.Name = driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[1]/h1")).Text;
+                        
                         Thread.Sleep(1000);
                         bool ok = false;
                         while (ok == false)
                         {
                             try
                             {
-                                
-                                driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[4]/div[1]/p/a")).Click();
-                                ok = true;
+                                if(nuovamalattia.Name == "Influenza (Flu)")
+                                {
+                                    driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[3]/div[1]/p/a")).Click();
+                                    ok = true;
+                                }
+                                else
+                                {
+                                    driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[4]/div[1]/p/a")).Click();
+                                    ok = true;
+                                }
                             }
                             catch (WebDriverException e)
                             {
@@ -368,20 +381,29 @@ namespace API_Pharmacy.Repository
                         int sez = 1;
                         int sezioni = driver.FindElements(By.ClassName("article-section")).Count;
 
-                        Guid guid = Guid.NewGuid();
-                        nuovamalattia.Id = guid.ToString();
-                        nuovamalattia.Name = driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[1]/h1")).Text;
                         
+                                                                                             
                         if (sezioni == 5)
                         {
                             while (sez <= sezioni - 1)
                             {
-
-                                if (sez != 1 && sez != 3)
+                                if (nuovamalattia.Name == "Influenza (Flu)")
                                 {
-                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/h3")).Text + ": ";
+                                    if (sez != 1 && sez != 2 && sez != 4)
+                                    {
+                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/h3")).Text + ": ";
+                                         
+                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/div/p")).Text + "\n\n";
+                                    }
+                                }
+                                else
+                                {
+                                    if (sez != 1 && sez != 3)
+                                    {
+                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/h3")).Text + ": ";
 
-                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/div/p")).Text + "\n\n";
+                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/div/p")).Text + "\n\n";
+                                    }
                                 }
                                 sez++;
                             }

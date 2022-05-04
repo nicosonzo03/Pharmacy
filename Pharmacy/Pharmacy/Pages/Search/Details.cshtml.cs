@@ -19,7 +19,11 @@ namespace Pharmacy.Pages.Search
         }
 
         public Disease malattiacercata { get; set; }
-        public IActionResult OnGet(string? id)
+
+        public string pezzo1 { get; set; }
+
+        public string pezzo2 { get; set; }
+        public IActionResult OnGet(string ? id)
         {
             if (id == null)
             {
@@ -33,6 +37,9 @@ namespace Pharmacy.Pages.Search
             }
             else
             {
+                malattiacercata.Description = malattiacercata.Description.Replace("\u2019", "'").Replace("\u0027", "'").Replace("\u201C", "\"").Replace("\u201D", "\"");
+                pezzo1 = malattiacercata.Description.Split("\n\n")[0];
+                pezzo2 = malattiacercata.Description.Split("\n\n")[1];
                 return Page();
             }
         }

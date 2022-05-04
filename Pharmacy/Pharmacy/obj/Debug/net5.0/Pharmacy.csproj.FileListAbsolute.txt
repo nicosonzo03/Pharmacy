@@ -137,7 +137,6 @@ C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Phar
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Pharmacy.TagHelpers.output.cache
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Pharmacy.RazorCoreGenerate.cache
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
-C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Razor\Pages\Favourites\Index.cshtml.g.cs
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Razor\Pages\History\Index.cshtml.g.cs
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Razor\Pages\Search\Index.cshtml.g.cs
@@ -161,3 +160,4 @@ C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\ref\
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Pharmacy.pdb
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Pharmacy.genruntimeconfig.cache
 C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Razor\Pages\Symptoms\Index.cshtml.g.cs
+C:\Users\NbkHp\Documents\GitHub\Pharmacy\Pharmacy\Pharmacy\obj\Debug\net5.0\Razor\Pages\Search\Details.cshtml.g.cs

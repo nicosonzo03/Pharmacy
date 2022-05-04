@@ -27,6 +27,10 @@ namespace Pharmacy.Pages.Search
         public User User { get; set; }
         ApiManager _apiManager { get; set; }
 
+        public string pezzo1 { get; set; }
+
+        public string pezzo2 { get; set; }
+
         public IActionResult OnGet(string text)
         {
             SearchText = text;
@@ -40,24 +44,42 @@ namespace Pharmacy.Pages.Search
             User = CookiesManager.GetUserByCookies(HttpContext.Request, _context);
             foreach (var p in Diseases)
             {
-                var sameDisease = _context.Diseases.Where(x => x.Name == p.Name).SingleOrDefault();
+                var sameDisease = new Disease();
+                sameDisease = _context.Diseases.Where(x => x.Name == p.Name).SingleOrDefault();
                 if (sameDisease == null)
-                    _context.Diseases.Add(p);
-                if (User != null)
                 {
-                    var newUserDisease = new UserDisease()
+                    _context.Diseases.Add(p);
+                    if (User != null)
                     {
-                        Id = Guid.NewGuid().ToString(),
-                        IdDisease = p.Id,
-                        IdUser = User.Id,
-                        Date = DateTime.Now
-                    };
-                    _context.UsersDiseases.Add(newUserDisease);
+                        var newUserDisease = new UserDisease()
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            IdDisease = p.Id,
+                            IdUser = User.Id,
+                            Date = DateTime.Now
+                        };
+                        _context.UsersDiseases.Add(newUserDisease);
+                    }
                 }
+                else
+                {
+                    if (User != null)
+                    {
+                        var newUserDisease = new UserDisease()
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            IdDisease = sameDisease.Id,
+                            IdUser = User.Id,
+                            Date = DateTime.Now
+                        };
+                        _context.UsersDiseases.Add(newUserDisease);
+                    }
+                }
+
                 _context.SaveChanges();
             }
             if (Diseases.Count() == 0)
-                ErrorText = $"No disease found searching: '{SearchText}'";
+                ErrorText = $"No disease found searching: '{text}'";
             return Page();
         }
     }
