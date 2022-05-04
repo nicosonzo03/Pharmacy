@@ -284,66 +284,69 @@ namespace API_Pharmacy.Repository
                         nuovamalattia.Id = guid.ToString();
                         nuovamalattia.Name = driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/h1")).Text;
 
-                        if(nuovamalattia.Name == "Cerebellar Hemorrhage" || nuovamalattia.Name == "Aspiration Pneumonia" || nuovamalattia.Name == "Bacterial Pneumonia")
+                        if(nuovamalattia.Name == "Cerebellar Hemorrhage" || nuovamalattia.Name == "Aspiration Pneumonia" || nuovamalattia.Name == "Bacterial Pneumonia" || sezioni == 0)
                         {
-                            break;
+                            //break;
                         }
 
-                        if (sezioni == 5)
+                        else
                         {
-                            while (sez <= sezioni - 1)
+                            if (sezioni == 5)
                             {
-                                if (sez != 1 && sez != 3)
+                                while (sez <= sezioni - 1)
                                 {
-                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/h3")).Text + ": ";
-
-                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/div/p")).Text + "\n\n";
-                                }
-                                sez++;
-                            }
-                        }
-
-                        if (sezioni == 6)
-                        {
-                            while (sez <= sezioni - 2)
-                            {
-
-                                if (sez != 1 && sez != 3)
-                                {
-                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[{sez}]/h3")).Text + ": ";
-
-                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[{sez}]/div/p")).Text + "\n\n";
-                                }
-                                sez++;
-                            }
-                        }
-
-                        if (sezioni == 3)
-                        {
-                            while (sez <= sezioni - 1)
-                            {
-                                if (sez != 3)
-                                {
-                                    if (sez == 1)
+                                    if (sez != 1 && sez != 3)
                                     {
-                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[{sez}]/div/h3")).Text + ": ";
+                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/h3")).Text + ": ";
 
-                                        int countp = driver.FindElements(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[1]/div/div/p")).Count;
+                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/div/p")).Text + "\n\n";
+                                    }
+                                    sez++;
+                                }
+                            }
 
-                                        while(h <= countp)
+                            if (sezioni == 6)
+                            {
+                                while (sez <= sezioni - 2)
+                                {
+
+                                    if (sez != 1 && sez != 3)
+                                    {
+                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[{sez}]/h3")).Text + ": ";
+
+                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[{sez}]/div/p")).Text + "\n\n";
+                                    }
+                                    sez++;
+                                }
+                            }
+
+                            if (sezioni == 3)
+                            {
+                                while (sez <= sezioni - 1)
+                                {
+                                    if (sez != 3)
+                                    {
+                                        if (sez == 1)
                                         {
-                                            nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[{sez}]/div/div/p[{h}]")).Text + "\n\n";
-                                            h++;
+                                            nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[{sez}]/div/h3")).Text + ": ";
+
+                                            int countp = driver.FindElements(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[1]/div/div/p")).Count;
+
+                                            while (h <= countp)
+                                            {
+                                                nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[{sez}]/div/div/p[{h}]")).Text + "\n\n";
+                                                h++;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[{sez}]/div/h3")).Text + ": ";
+
+                                            nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[{sez}]/div/div/p")).Text + "\n\n";
                                         }
                                     }
-                                    else
-                                    {
-                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[{sez}]/div/h3")).Text + ": ";
-
-                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[{sez}]/div/div/p")).Text + "\n\n";
-                                    }                                                                              
+                                    sez++;
                                 }
-                                sez++;
                             }
                         }
                     }
@@ -425,7 +428,14 @@ namespace API_Pharmacy.Repository
                         }
                     }
 
-                    elencomalattie.Add(nuovamalattia);
+                    if (nuovamalattia.Name == "Cerebellar Hemorrhage" || nuovamalattia.Name == "Aspiration Pneumonia" || nuovamalattia.Name == "Bacterial Pneumonia" || nuovamalattia.Description == "" || nuovamalattia.Description == null)
+                    {
+                        //break;
+                    }
+                    else
+                    {
+                        elencomalattie.Add(nuovamalattia);
+                    }
                     x++;
                 }
             }

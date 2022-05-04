@@ -42,6 +42,8 @@ namespace Pharmacy.Pages.Symptoms
             {
                 elencosintomi.Add(item);
             }
+
+            elencosintomi = elencosintomi.OrderBy(s => s.sintomo).ToList();
             
             return Page();
         }
@@ -64,6 +66,8 @@ namespace Pharmacy.Pages.Symptoms
             ResultText = ResultText.Substring(0, ResultText.Length - 1);
 
             sint = Symptoms.ToList();
+
+            elencosintomi = elencosintomi.OrderBy(s => s.sintomo).ToList();
 
             return Page();
         }
