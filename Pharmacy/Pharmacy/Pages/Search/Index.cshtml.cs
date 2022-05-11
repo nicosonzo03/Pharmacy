@@ -31,14 +31,21 @@ namespace Pharmacy.Pages.Search
 
         public string pezzo2 { get; set; }
 
+
+        public IList<string> sint = new List<string>();
+
         public IActionResult OnGet(string text)
         {
+            string[] arraysint = text.Split(',');
+            sint = arraysint.ToList();
             SearchText = text;
             User = CookiesManager.GetUserByCookies(HttpContext.Request, _context);
             return Page();
         }
         public async Task<IActionResult> OnPostAsync(string text)
         {
+            string[] arraysint = text.Split(',');
+            sint = arraysint.ToList();
             Diseases = _apiManager.GetDiseases(text);
             ErrorText = string.Empty;
             User = CookiesManager.GetUserByCookies(HttpContext.Request, _context);

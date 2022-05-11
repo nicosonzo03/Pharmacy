@@ -20,7 +20,7 @@ namespace API_Pharmacy.Repository
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("no-sandbox");
             options.AddArgument("--start-maximized");
-            //options.AddArgument("headless");
+            options.AddArgument("headless");
 
             WebDriver driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), options, TimeSpan.FromMinutes(3));
             driver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(30));
@@ -42,11 +42,12 @@ namespace API_Pharmacy.Repository
                 driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[3]/div[1]/div[1]/div[2]/input")).SendKeys(item);
                 Thread.Sleep(2000);
 
-                if (item == "headache")
+                if (item == "headache" || item == "Fever")
                 {
                     driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[3]/div[1]/div[1]/div[2]/ul[1]/li[1]/a")).Click();
                     driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[3]/div[3]/div/div/div[3]/div")).Click();
                 }
+                
                 else
                 {
                     driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[3]/div[1]/div[1]/div[2]/ul[1]/li[1]/a")).Click();
@@ -60,11 +61,12 @@ namespace API_Pharmacy.Repository
             driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[3]/div[2]/button[2]")).Click();
 
             Thread.Sleep(2000);
-
+            
             if (driver.PageSource.Contains("We are unable to find any conditions that match the symptoms you entered."))
             {
                 return elencomalattie.ToList();
             }
+            
             else
             {
                 int li = driver.FindElements(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[3]/div[2]/div[1]/div/div/ul/li")).Count;
@@ -94,57 +96,67 @@ namespace API_Pharmacy.Repository
 
                     Thread.Sleep(1000);
 
-                    if (driver.PageSource.Contains(" Please contact your doctor or call 911 ") && driver.PageSource.Contains(" This is an URGENT CONDITION ") && driver.PageSource.Contains(" read more")) //&& (!driver.PageSource.Contains("? Find Out More")))
+                    if (!(driver.PageSource.Contains("Overview") && driver.PageSource.Contains("How Common")))
                     {
-                        Thread.Sleep(1000);
-                        bool ok = false;
-                        while (ok == false)
-                        {
-                            try
-                            {
-                                driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[4]/div[1]/p/a")).Click();
-                                ok = true;
-                            }
-                            catch (WebDriverException e)
-                            {
-                                e.StackTrace.ToString();
-                            }
-                        }
-
-                        int sez = 1;
-                        int sezioni = driver.FindElements(By.ClassName("article-section")).Count;
-
                         Guid guid = Guid.NewGuid();
                         nuovamalattia.Id = guid.ToString();
-                        nuovamalattia.Name = driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[2]/h1")).Text;
+                        nuovamalattia.Name = driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/h1")).Text;
+                    }
 
-                        if (sezioni == 5)
+                    else if (driver.PageSource.Contains(" Please contact your doctor or call 911 ") && driver.PageSource.Contains(" This is an URGENT CONDITION ") && driver.PageSource.Contains(" read more")) //&& (!driver.PageSource.Contains("? Find Out More")))
+                    {
+                        if(driver.PageSource.Contains("How Common"))
                         {
-                            while (sez <= sezioni - 1)
+                            Thread.Sleep(1000);
+                            bool ok = false;
+                            while (ok == false)
                             {
-
-                                if (sez != 1 && sez != 3)
+                                try
                                 {
-                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/h3")).Text + ": ";
-
-                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/div/p")).Text + "\n\n";
+                                    driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[4]/div[1]/p/a")).Click();
+                                    ok = true;
                                 }
-                                sez++;
+                                catch (WebDriverException e)
+                                {
+                                    e.StackTrace.ToString();
+                                }
                             }
-                        }
 
-                        if (sezioni == 6)
-                        {
-                            while (sez <= sezioni - 2)
+                            int sez = 1;
+                            int sezioni = driver.FindElements(By.ClassName("article-section")).Count;
+
+                            Guid guid = Guid.NewGuid();
+                            nuovamalattia.Id = guid.ToString();
+                            nuovamalattia.Name = driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[2]/h1")).Text;
+
+                            if (sezioni == 5)
                             {
-
-                                if (sez != 1 && sez != 3)
+                                while (sez <= sezioni - 1)
                                 {
-                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[{sez}]/h3")).Text + ": ";
 
-                                    nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[{sez}]/div/p")).Text + "\n\n";
+                                    if (sez != 1 && sez != 3)
+                                    {
+                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/h3")).Text + ": ";
+
+                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[3]/div/div[{sez}]/div/p")).Text + "\n\n";
+                                    }
+                                    sez++;
                                 }
-                                sez++;
+                            }
+
+                            if (sezioni == 6)
+                            {
+                                while (sez <= sezioni - 2)
+                                {
+
+                                    if (sez != 1 && sez != 3)
+                                    {
+                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[{sez}]/h3")).Text + ": ";
+
+                                        nuovamalattia.Description = nuovamalattia.Description + driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[{sez}]/div/p")).Text + "\n\n";
+                                    }
+                                    sez++;
+                                }
                             }
                         }
                     }
@@ -152,19 +164,7 @@ namespace API_Pharmacy.Repository
                     else if (driver.PageSource.Contains(" Please contact your doctor or call 911 ") && (!driver.PageSource.Contains(" read more")))
                     {
                         Thread.Sleep(1000);
-                        //bool ok = false;
-                        //while (ok == false)
-                        //{
-                        //    try
-                        //    {
-                        //        driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[4]/div[1]/p/a")).Click();
-                        //        ok = true;
-                        //    }
-                        //    catch (WebDriverException e)
-                        //    {
-                        //        e.StackTrace.ToString();
-                        //    }
-                        //}
+                        
 
                         int sez = 1;
                         int sezioni = driver.FindElements(By.ClassName("article-section")).Count;
@@ -262,19 +262,7 @@ namespace API_Pharmacy.Repository
                     else if (!driver.PageSource.Contains(" read more"))
                     {
                         Thread.Sleep(1000);
-                        //bool ok = false;
-                        //while (ok == false)
-                        //{
-                        //    try
-                        //    {
-                        //        driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[4]/div/div[4]/div[1]/p/a")).Click();
-                        //        ok = true;
-                        //    }
-                        //    catch (WebDriverException e)
-                        //    {
-                        //        e.StackTrace.ToString();
-                        //    }
-                        //}
+                        
 
                         int h = 1;
                         int sez = 1;
@@ -284,7 +272,7 @@ namespace API_Pharmacy.Repository
                         nuovamalattia.Id = guid.ToString();
                         nuovamalattia.Name = driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/h1")).Text;
 
-                        if(nuovamalattia.Name == "Cerebellar Hemorrhage" || nuovamalattia.Name == "Aspiration Pneumonia" || nuovamalattia.Name == "Bacterial Pneumonia" || sezioni == 0)
+                        if(nuovamalattia.Name == "Cerebellar Hemorrhage" || nuovamalattia.Name == "Aspiration Pneumonia" || nuovamalattia.Name == "Bacterial Pneumonia" || sezioni == 0 || nuovamalattia.Name == "Esophagitis" || nuovamalattia.Name == "Rotator Cuff Tear")
                         {
                             //break;
                         }
@@ -428,9 +416,10 @@ namespace API_Pharmacy.Repository
                         }
                     }
 
-                    if (nuovamalattia.Name == "Cerebellar Hemorrhage" || nuovamalattia.Name == "Aspiration Pneumonia" || nuovamalattia.Name == "Bacterial Pneumonia" || nuovamalattia.Description == "" || nuovamalattia.Description == null)
+                    if (nuovamalattia.Name == "Cerebellar Hemorrhage" || nuovamalattia.Name == "Aspiration Pneumonia" || nuovamalattia.Name == "Bacterial Pneumonia" || nuovamalattia.Description == "" || nuovamalattia.Description == null || nuovamalattia.Name == "Esophagitis" || nuovamalattia.Name == "Rotator Cuff Tear")
                     {
-                        //break;
+                        nuovamalattia.Description = "No description for this disease.";
+                        elencomalattie.Add(nuovamalattia);
                     }
                     else
                     {
