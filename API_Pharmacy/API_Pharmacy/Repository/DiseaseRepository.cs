@@ -20,7 +20,7 @@ namespace API_Pharmacy.Repository
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("no-sandbox");
             options.AddArgument("--start-maximized");
-            options.AddArgument("headless");
+            //options.AddArgument("headless");
 
             WebDriver driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), options, TimeSpan.FromMinutes(3));
             driver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(30));
@@ -40,7 +40,7 @@ namespace API_Pharmacy.Repository
             foreach (var item in elencosintomi)
             {
                 driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[3]/div[1]/div[1]/div[2]/input")).SendKeys(item);
-                Thread.Sleep(2000);
+                Thread.Sleep(5000);
 
                 if (item == "headache" || item == "Fever")
                 {
@@ -73,6 +73,8 @@ namespace API_Pharmacy.Repository
                 int x = 1;
                 while (x <= li)
                 {
+                    Thread.Sleep(5000);
+
                     Disease nuovamalattia = new Disease();
 
                     if (x != 1)
@@ -416,7 +418,7 @@ namespace API_Pharmacy.Repository
                         }
                     }
 
-                    if (nuovamalattia.Name == "Cerebellar Hemorrhage" || nuovamalattia.Name == "Aspiration Pneumonia" || nuovamalattia.Name == "Bacterial Pneumonia" || nuovamalattia.Description == "" || nuovamalattia.Description == null || nuovamalattia.Name == "Esophagitis" || nuovamalattia.Name == "Rotator Cuff Tear")
+                    if (nuovamalattia.Name == "Cerebellar Hemorrhage" || nuovamalattia.Name == "Aspiration Pneumonia" || nuovamalattia.Name == "Bacterial Pneumonia" || nuovamalattia.Description == "" || nuovamalattia.Description == null || nuovamalattia.Name == "Esophagitis" || nuovamalattia.Name == "Rotator Cuff Tear" || nuovamalattia.Description == "" || nuovamalattia.Description == null)
                     {
                         nuovamalattia.Description = "No description for this disease.";
                         elencomalattie.Add(nuovamalattia);
