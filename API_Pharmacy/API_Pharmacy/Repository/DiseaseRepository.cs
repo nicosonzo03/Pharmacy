@@ -73,7 +73,7 @@ namespace API_Pharmacy.Repository
                 int x = 1;
                 while (x <= li)
                 {
-                    Thread.Sleep(5000);
+                    Thread.Sleep(4000);
 
                     Disease nuovamalattia = new Disease();
 
@@ -102,7 +102,14 @@ namespace API_Pharmacy.Repository
                     {
                         Guid guid = Guid.NewGuid();
                         nuovamalattia.Id = guid.ToString();
-                        nuovamalattia.Name = driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/h1")).Text;
+                        if(driver.PageSource.Contains("Allergic esophagitis"))
+                        {
+                            nuovamalattia.Name = driver.FindElement(By.XPath("/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/div[1]/h1")).Text;
+                        }
+                        else
+                        {
+                            nuovamalattia.Name = driver.FindElement(By.XPath($"/html/body/div[1]/div[3]/main/div/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/div/h1")).Text;
+                        }
                     }
 
                     else if (driver.PageSource.Contains(" Please contact your doctor or call 911 ") && driver.PageSource.Contains(" This is an URGENT CONDITION ") && driver.PageSource.Contains(" read more")) //&& (!driver.PageSource.Contains("? Find Out More")))
@@ -430,6 +437,7 @@ namespace API_Pharmacy.Repository
                     x++;
                 }
             }
+            driver.Close();
             return elencomalattie;
         }
 
