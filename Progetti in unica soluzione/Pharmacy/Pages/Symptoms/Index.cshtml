@@ -1,0 +1,96 @@
+﻿@page
+@model Pharmacy.Pages.Symptoms.IndexModel
+@{
+    ViewData["Title"] = "Symptoms";
+}
+@if (Model.User == null)
+{
+    <div class="text-center">
+        <h1 class="display-4,text">@ViewData["Title"]</h1>
+    </div>
+    <div class="text-center mt-5">
+        <p>You are not logged in! <a asp-page="/users/register">Register</a> or <a asp-page="/users/login">Log in</a></p>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4,text">@ViewData["Title"] - @Model.User.Username</h1>
+    </div>
+    @if (!Model.User.IsVerified)
+    {
+        <div class="text-center mt-5">
+            <p>You are not verified! <a asp-page="/users/register">Register another account</a> or <a asp-page="/users/login">Log into another account</a></p>
+        </div>
+    }
+    else
+    {
+        @if (Model.User != null)
+        {
+            <form method="post">
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-9">
+                                    <select type="search" class="form-control" asp-for="@Model.SearchText" placeholder="Choose symptom...">
+                                        @foreach (var item in Model.elencosintomi)
+                                        {
+                                            <option>@item.sintomo</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div>
+                                    <input type="submit" class="btn btn-primary" value="Add" />
+                                    <a asp-page="../Search/Index" asp-route-text="@Model.ResultText"><i class="bi bi-box-arrow-in-right"></i>Go to search page</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-sm-2">
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-9">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Selected Symptoms
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.sint)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item)
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @if (!string.IsNullOrEmpty(Model.ErrorText))
+                        {
+                            <div class="alert alert-danger text-center mt-3">
+                                <p>@Model.ErrorText</p>
+                            </div>
+                        }
+                    </div>
+            </form>
+        }
+    }
+}
+
+
+
+
